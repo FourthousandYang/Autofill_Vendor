@@ -1,0 +1,16 @@
+document.querySelectorAll("a");for (let element of elements) {result.push({"url": element.href,"text": element.innerText});}
+document.getElementsByClassName("question-body clearfix notranslate")[0].getElementsByClassName("radio-button-input")[0].click();
+//員工編號 value="XXXXXXX"
+document.getElementsByClassName("question-body clearfix notranslate")[1].getElementsByTagName("input")[0].value="XXXXX";
+document.getElementsByClassName("question-body clearfix notranslate")[2].getElementsByClassName("radio-button-input")[0].click();let temperature =(Math.random() * (36.6 - 35.9) + 35.9).toFixed(1);
+document.getElementsByClassName("question-body clearfix notranslate")[3].getElementsByTagName("input")[0].value=temperaturedocument.evaluate("//div[@id='question-field-683680590']/fieldset/div/div/div/div/label/span" ,document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();
+document.getElementsByClassName("question-body clearfix notranslate")[5].getElementsByClassName("radio-button-input")[1].click();
+//有無施打過疫苗 ("radio-button-input")[1] >> 無[1]/有[0]
+document.getElementsByClassName("question-body clearfix notranslate")[6].getElementsByClassName("radio-button-input")[1].click();
+document.getElementsByClassName("question-body clearfix notranslate")[7].getElementsByClassName("radio-button-input")[2].click();
+document.getElementsByClassName("question-body clearfix notranslate")[8].getElementsByClassName("radio-button-input")[3].click();
+document.getElementsByClassName("question-body clearfix notranslate")[9].getElementsByClassName("radio-button-input")[3].click();
+document.getElementsByClassName("question-body clearfix notranslate")[10].getElementsByClassName("radio-button-input")[3].click();
+document.getElementsByClassName("question-body clearfix notranslate")[11].getElementsByClassName("radio-button-input")[0].click();
+// 呼叫 completion 來完成
+completion(result);
