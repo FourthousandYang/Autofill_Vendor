@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait                                                            
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
-import random, os, configparser, time 
+import random, os, configparser, time, datetime
 
 
 retryCount = 0
@@ -155,21 +155,53 @@ def readFile():
 
 if __name__ == "__main__":
     
+    date_of_today = datetime.date.today()
+    print ("Open program date: " + str(date_of_today))
     config = configparser.ConfigParser()
     config.read('config.ini')
 
+    loop_mode = int(config['mode']['loop_mode'])
     single_multiple_mode = int(config['mode']['single_multiple'])
     test_mode = int(config['mode']['test'])
     employeeId = config['employeeId']['id']
     vaccinated = int(config['selection']['vaccinated'])
+    try:
+        while loop_mode:
+            date_of_today = datetime.date.today()
+            current_day = None
+            if (current_day == date_of_today) and (current_day is not None):
+                print("Still today")
+                pass
+            else:
+                print("Next day")
+                if single_multiple_mode == 0:
+                    autoFill(employeeId)
+                else:
+                    IdList = readFile()
+                    print(IdList)
+                    for data in IdList:
+                        i = 1
+                        id = data.split(",")[0]
+                        vaccinated = int(data.split(",")[1])
+                        print("Fill in ID: "+id+" vaccinated: "+ str(vaccinated))
+                        autoFill(id)
+                
+            current_day = date_of_today
 
-    if single_multiple_mode == 0:
-        autoFill(employeeId)
-    else:
-        IdList = readFile()
-        print(IdList)
-        for id in IdList:
-            print("Fill in ID: "+id)
-            autoFill(id)
+            time.sleep(86400)
+        else:
+            if single_multiple_mode == 0:
+                autoFill(employeeId)
+            else:
+                IdList = readFile()
+                print(IdList)
+                for data in IdList:
+                    i = 1
+                    id = data.split(",")[0]
+                    vaccinated = int(data.split(",")[1])
+                    print("Fill in ID: "+id+" vaccinated: "+ str(vaccinated))
+                    autoFill(id)
+    except Exception as e:
+        print(e)
     print("Progress Finish!")
     os.system('pause')
