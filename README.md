@@ -11,6 +11,8 @@ download webdriver which is chrome [Link](https://chromedriver.chromium.org/down
 
 mode --
 
+loop_mode  >> 24 hour 循環模式 (關閉0/開啟1)
+
 single_multiple  >> 單人/多人模式切換 (單人0/多人1)
 
 test >> 開啟1/關閉0
