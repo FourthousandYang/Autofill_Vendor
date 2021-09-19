@@ -19,7 +19,7 @@ test >> 開啟1/關閉0
 
 employeeId --
 
-id >> 廠商員工編號 (單人模式)
+id >> 廠商工作證號 (單人模式)
 
 selection --
 
